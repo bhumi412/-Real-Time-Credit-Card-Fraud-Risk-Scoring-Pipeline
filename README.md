@@ -47,10 +47,15 @@ SQL Analysis & Dashboard
 ```
 Credit-Card-Fraud-Risk-Scoring-Pipeline
 
+│
 ├── notebooks
+│
 ├── data
+│
 ├── results
-├── .gitignore
+│
+├── PROJECT_DOCUMENTATION.md
+│
 └── README.md
 ```
 
@@ -60,13 +65,16 @@ Credit-Card-Fraud-Risk-Scoring-Pipeline
 - Contains Databricks notebooks and SQL scripts used for data ingestion, transformation, fraud detection, and analysis.
 
 **data**
-- Contains raw input datasets used for the fraud detection pipeline.
+- Contains raw input datasets used for building and testing the fraud detection pipeline.
 
 **results**
 - Contains output screenshots, analysis results, and dashboard visualizations.
 
+**PROJECT_DOCUMENTATION.md**
+- Contains detailed project documentation including implementation details, challenges faced, limitations, results, and future enhancements.
+
 **README.md**
-- Contains project documentation and implementation details.
+- Contains project overview, architecture, technologies used, and setup information.
 
 ---
 
