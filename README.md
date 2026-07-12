@@ -47,13 +47,10 @@ SQL Analysis & Dashboard
 ```
 Credit-Card-Fraud-Risk-Scoring-Pipeline
 
-│
 ├── notebooks
-│
 ├── data
-│
 ├── results
-│
+├── .gitignore
 └── README.md
 ```
 
