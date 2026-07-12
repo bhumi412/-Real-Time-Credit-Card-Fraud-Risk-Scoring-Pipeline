@@ -1,0 +1,42 @@
+# Databricks files
+.databricks/
+*.dbc
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Spark / Delta temporary files
+_spark_metadata/
+_checkpoints/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.venv/
+venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large data files
+# Uncomment if you don't want to push CSV data
+# data/*.csv
+
+# Output files
+*.parquet
