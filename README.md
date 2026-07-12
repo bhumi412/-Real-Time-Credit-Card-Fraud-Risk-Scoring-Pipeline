@@ -1,145 +1,173 @@
-# Credit Card Fraud Detection Data Pipeline using Databricks
+# Real-Time Credit Card Fraud Risk Scoring Pipeline
 
-## Project Overview
+## Overview
 
-This project implements an end-to-end data engineering pipeline for detecting suspicious credit card transactions using Databricks, PySpark, and Delta Lake.
+This project implements an end-to-end credit card fraud risk scoring pipeline using Databricks, Apache Spark, and Delta Lake.
 
-The pipeline follows the Medallion Architecture approach:
-- Bronze Layer for raw data ingestion
-- Silver Layer for data cleaning and transformation
-- Gold Layer for fraud detection analytics and business insights
+The pipeline follows the Medallion Architecture approach (Bronze, Silver, and Gold layers) to ingest raw transaction data, clean and transform data, generate fraud risk scores, and create analytical datasets for fraud monitoring.
 
 ---
 
 ## Architecture
 
-CSV Files  
-↓  
-Bronze Layer  
-↓  
-Silver Layer  
-↓  
-Gold Layer  
-↓  
+```
+Raw Transaction Data
+          |
+          ↓
+Bronze Layer
+(Data Ingestion)
+          |
+          ↓
+Silver Layer
+(Data Cleaning & Transformation)
+          |
+          ↓
+Gold Layer
+(Fraud Detection & Analytics)
+          |
+          ↓
 SQL Analysis & Dashboard
+```
 
 ---
 
 ## Technologies Used
 
 - Databricks
-- Apache Spark
-- PySpark
+- Apache Spark (PySpark)
 - Delta Lake
 - SQL
 - Unity Catalog
+- GitHub
 
 ---
 
-## Medallion Architecture Implementation
+## Project Structure
+
+```
+Credit-Card-Fraud-Risk-Scoring-Pipeline
+
+│
+├── notebooks
+│
+├── data
+│
+├── results
+│
+└── README.md
+```
+
+### Folder Description
+
+**notebooks**
+- Contains Databricks notebooks and SQL scripts used for data ingestion, transformation, fraud detection, and analysis.
+
+**data**
+- Contains raw input datasets used for the fraud detection pipeline.
+
+**results**
+- Contains output screenshots, analysis results, and dashboard visualizations.
+
+**README.md**
+- Contains project documentation and implementation details.
+
+---
+
+## Data Pipeline
 
 ### Bronze Layer
 
-Purpose:
-- Store raw transaction data
-- Preserve original data
-- Add ingestion metadata
+The Bronze layer is responsible for ingesting raw transaction data and storing it in Delta Lake format.
 
-Table:
-
-`workspace.fraud_db.bronze_transactions`
-
-Features:
-- Raw data ingestion
-- Source tracking
-- Batch identification
+Operations performed:
+- Load raw CSV transaction data
+- Validate schema
+- Add metadata columns
+- Create Bronze Delta table
 
 ---
 
 ### Silver Layer
 
-Purpose:
-- Improve data quality
-- Clean and validate data
+The Silver layer performs data cleaning and transformation to prepare analytics-ready data.
 
-Transformations:
-- Duplicate removal
-- Null value validation
-- Data type validation
-
-Table:
-
-`workspace.fraud_db.silver_transactions`
+Operations performed:
+- Remove duplicate records
+- Handle missing values
+- Join transaction data with customer profile information
+- Perform data transformations
 
 ---
 
 ### Gold Layer
 
-Purpose:
-Create business-ready fraud analytics tables.
+The Gold layer creates business-ready datasets for fraud analysis.
 
-Tables:
+Operations performed:
+- Calculate fraud scores
+- Generate risk categories
+- Create customer risk profiles
+- Prepare analytical tables
 
-`gold_fraud_alerts`
-
-Contains:
-- Transaction details
-- Risk score
-- Risk level
-
-
-`gold_customer_risk_profile`
-
-Contains:
-- Customer transaction summary
-- Average transaction amount
-- High-risk transaction count
-
----
-
-## Fraud Detection Logic
-
-Risk Score Rules:
-
-| Condition | Risk Score | Risk Level |
-|---|---|---|
-| Amount > 50000 | 90 | HIGH |
-| Amount > 10000 | 50 | MEDIUM |
-| Otherwise | 10 | LOW |
+Gold datasets:
+- Fraud Alerts
+- Customer Risk Profile
 
 ---
 
 ## SQL Analysis
 
-Implemented analysis:
+SQL queries are used to generate insights from Gold layer data.
 
-- High-risk transaction identification
-- Top risky customers
-- Risk distribution analysis
-- Location-wise fraud analysis
+Analysis includes:
+
+- Fraud distribution by risk level
 - High-value suspicious transactions
-
----
-
-## Dashboard Insights
-
-Dashboard provides:
-
-- Total transaction count
-- High-risk transaction count
-- Risk category distribution
+- Top fraud merchants
 - Customer risk analysis
-- Location-based fraud patterns
+- Fraud trends
 
 ---
 
-## Project Workflow
+## Dashboard
 
-1. Ingest raw CSV files into Bronze layer
-2. Clean and validate data in Silver layer
-3. Apply fraud detection rules in Gold layer
-4. Generate SQL-based business insights
-5. Create dashboard visualizations
+A fraud monitoring dashboard is created using Gold layer datasets.
+
+Dashboard visualizations include:
+
+- Fraud alerts distribution by risk level
+- Fraud amount analysis
+- Top fraud merchants
+- Customer risk profile
+- Fraud trends over time
+
+---
+
+## Key Features
+
+- End-to-end Data Engineering pipeline
+- Medallion Architecture implementation
+- Delta Lake based data storage
+- Spark-based data processing
+- Fraud risk scoring logic
+- Analytics-ready datasets
+
+---
+
+## Results
+
+The pipeline successfully transforms raw transaction data into structured datasets for fraud detection analysis and visualization.
+
+Dashboard screenshots and output results are available in the results folder.
+
+---
+
+## Future Improvements
+
+- Implement real-time streaming ingestion
+- Add machine learning based fraud prediction
+- Integrate advanced BI tools
+- Add automated data quality monitoring
 
 ---
 
